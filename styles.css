@@ -1,0 +1,47 @@
+
+/** 
+ 
+*/
+
+#game {
+  width: 100%;
+  height: 500;
+  background-color: rgb(73, 207, 222);
+  
+  border: solid rgb(17, 17, 18);
+  margin: auto;
+}
+
+.myFlexcontainer {
+  display: grid;
+  width: 500px; 
+  height: 500px; 
+  
+}
+.demoBox{
+  display: inline-flex;
+  background-color: pink;
+  border: 1px solid black;
+  border-radius: 25%;
+  padding: 2em;
+}
+.pic-boita{
+    width: 050px; 
+    height: 050px;                              
+    display: flex; /* Enable flexbox layout */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    
+  
+}
+.centered-img {
+    max-width: 100%; /* Scale down large images */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.squared-img {
+    max-width: 100%; /* Scale down large images */
+    width: 50px;
+    height: 50px;
+}
