@@ -7,7 +7,7 @@ const pacArray = [
 ];
 
 // This variable helps determine which PacMan image should be displayed. It flips between values 0 and 1
-var focus = 0;
+let focus = 1;
 // this is array of newpacMen
 const pacMen = [];
 
@@ -24,6 +24,7 @@ function makePac() {
     x: 33,
     y: 27,
   };
+
   // Add image to div id = game
   let game = document.getElementById("game");
   let gameRect = game.getBoundingClientRect();
@@ -57,6 +58,7 @@ function update() {
   pacMen.forEach((item) => {
     checkCollisions(item);
     focus = (focus + 1) % 2;
+
     item.newimg.src = pacArray[item.direction][focus];
 
     item.position.x += item.velocity.x;
@@ -65,6 +67,7 @@ function update() {
     item.newimg.style.left = item.position.x;
     item.newimg.style.top = item.position.y;
   });
+
   setTimeout(update, 150);
 }
 
@@ -96,9 +99,26 @@ function checkCollisions(item) {
     direction = 0;*/
 }
 function stop() {
-  clearTimeout(update);
-}
+  // to be determined
+  pacMen.forEach((item) => {
+    checkCollisions(item);
+    focus = (focus + 1) % 2;
 
+    item.newimg.src = pacArray[item.direction][focus];
+
+    item.velocity.x = 0;
+    item.velocity.y = 0;
+
+    item.newimg.style.left = item.position.x;
+    item.newimg.style.top = item.position.y;
+  });
+}
+function reset() {
+  // TO BE DETERMINED
+}
+function stop() {
+  //to be determined
+}
 function makeOne() {
   pacMen.push(makePac()); // add a new PacMan
 }
