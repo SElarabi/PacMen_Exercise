@@ -99,13 +99,8 @@ function checkCollisions(item) {
     direction = 0;*/
 }
 function stop() {
-  // to be determined
+  // TO BE CONTINUED
   pacMen.forEach((item) => {
-    checkCollisions(item);
-    focus = (focus + 1) % 2;
-
-    item.newimg.src = pacArray[item.direction][focus];
-
     item.velocity.x = 0;
     item.velocity.y = 0;
 
@@ -114,11 +109,9 @@ function stop() {
   });
 }
 function reset() {
-  // TO BE DETERMINED
+  location.reload();
 }
-function stop() {
-  //to be determined
-}
+
 function makeOne() {
   pacMen.push(makePac()); // add a new PacMan
 }
