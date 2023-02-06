@@ -2,7 +2,7 @@
 
 # PacMen-Exercise
 
-<h3>PacMen exercise</h3>
+<h3>Description</h3>
 <p>
 Exercise to learn how to dynamically inject content into a web page using JavaScript.
 </p>
