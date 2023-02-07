@@ -11,12 +11,12 @@ This project is a demo website that showcases a JavaScript game and can be consi
 ## How to Run ##
 ### Main display and pacmen.js
 <p>
- - The website includes a navbar with links to other pages, buttons to add PacMan, Move,stop and reset are element for user interaction with pacman elements.<br> 
+ -The website includes a navbar with links to other pages, buttons to add PacMan, Move,stop and reset are element for user interaction with pacman elements.<br> 
  The game itself is displayed in a container on the page, and uses HTML and CSS for the visual elements.
- - The add button will add pacman character each time user hit the button.
-- Start would make added charcters to start moving and bouncing inside the display. Each character would change direction each time it hits the frame sides of the display container.The characters would accelerate when Move button is pressed.
- - Stop would freeze all pacman characters running in the display.
- - Reset would clear display and allow to start new characters.
+ -The add button will add pacman character each time user hit the button.
+-Start would make added charcters to start moving and bouncing inside the display. Each character would change direction each time it hits the frame sides of the display container.The characters would accelerate when Move button is pressed.
+ -Stop would freeze all pacman characters running in the display.
+ -Reset would clear display and allow to start new characters.
 
 </p>
 <p>
