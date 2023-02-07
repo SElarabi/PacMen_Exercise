@@ -34,7 +34,7 @@ Bootstrap CSS link
    
       
 <p/>
-<p>
+
   Bootstrap JS and popper, the order in wich the bootstrap javascript are called is:  Popper.js, then Bootstrap JS
   
     <script
@@ -48,12 +48,12 @@ Bootstrap CSS link
       crossorigin="anonymous">
     </script>
   
-  </p>
-## Roadmap of future improvements ##
+  
+##  Roadmap of future improvements ##
 
 - Modify code to allow the pacman character to change face direction.
 - Fix the stop option and allow to resume pacman carachters  movement when user hit move again.
-- 
+
 ## MIT License ##
 
 <p>Copyright (c) 2023 Eddie Larabi</p>
