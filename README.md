@@ -9,12 +9,13 @@ This project is a demo website that showcases a JavaScript game and can be consi
 </p>
 
 ## How to Run ##
+### Main display and pacmen.js
 <p>
  The website includes a navbar with links to other pages, buttons to add PacMan, start,stop and reset are element for user interaction with pacman elements.<br> 
 The game itself is displayed in a container on the page, and uses HTML and CSS for the visual elements.
 </p>
 <p>
-The JavaScript component of the project interacts with the HTML elements to create a dynamic game experience where the position of the elements on the screen updates in real-time .
+The JavaScript code in pacmen.js file consist of creating and controling components that interact with the HTML elements to create a dynamic game experience where the position of the elements on the screen updates in real-time .
 </p>
 
 ### Navigation bar ###
@@ -48,7 +49,10 @@ Bootstrap CSS link
     </script>
   
   </p>
-
+## Roadmap of future improvements ##
+- Modify code to allow the pacman character to change face direction.
+- Fix the stop option and allow to resume pacman carachters  movement when user hit move again.
+- 
 ## MIT License ##
 <p>Copyright (c) 2023 Eddie Larabi</p>
 
