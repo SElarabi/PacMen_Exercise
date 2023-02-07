@@ -7,7 +7,6 @@
 Exercise to learn how to dynamically inject content into a web page using JavaScript.
 </p>
 
-<article>
 <p>
 This project is a demo website that showcases a JavaScript game. The website includes a navbar with links to other pages, buttons to add PacMan, start,stop and reset are element for user interaction with pacman elements.<br> 
 The game itself is displayed in a container on the page, and uses HTML and CSS for the visual elements.
@@ -15,10 +14,10 @@ The game itself is displayed in a container on the page, and uses HTML and CSS f
 <p>
 The JavaScript component of the project interacts with the HTML elements to create a dynamic game experience where the position of the elements on the screen updates in real-time .
 </p>
-</article>
+
 <h3>MIT License </h3>
 <p>Copyright (c) 2023 Eddie Larabi</p>
-<article>
+
 <p>
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -39,4 +38,3 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 </p>
-</article>
