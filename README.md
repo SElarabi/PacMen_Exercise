@@ -1,19 +1,50 @@
 <!-- @format -->
 
 # PacMen-Exercise
-
-<h3>Description</h3>
+Visit site: https://selarabi.github.io/PacMen_Exercise/ 
+## Description ##
 <p>
-Exercise to learn how to dynamically inject content into a web page using JavaScript.
+This project is a demo website that showcases a JavaScript game and can be considered as an exercise to learn how to dynamically inject content into a web page using JavaScript.
 </p>
-
+## How to Run ##
 <p>
-This project is a demo website that showcases a JavaScript game. The website includes a navbar with links to other pages, buttons to add PacMan, start,stop and reset are element for user interaction with pacman elements.<br> 
+ The website includes a navbar with links to other pages, buttons to add PacMan, start,stop and reset are element for user interaction with pacman elements.<br> 
 The game itself is displayed in a container on the page, and uses HTML and CSS for the visual elements.
 </p>
 <p>
 The JavaScript component of the project interacts with the HTML elements to create a dynamic game experience where the position of the elements on the screen updates in real-time .
 </p>
+### Navigation bar ###
+The navigation bar has 2 elements (Portfolio and Project sites ) which allow to navigate and explore other projects  their repositories and their sites.<br>
+This website was built using bootsrap styling with other defined styling included in style.css file.
+      
+</p>
+Bootstrap CSS and JS files are accessible using the following CDN links references without the need for downloading the files and include them in the project files. 
+<p>
+Bootstrap CSS link 
+      
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"/>
+   
+      
+<p/>
+<p>
+  Bootstrap JS and popper, the order in wich the bootstrap javascript are called is:  Popper.js, then Bootstrap JS
+  
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous">
+    </script>
+  
+  </p>
 
 <h3>MIT License </h3>
 <p>Copyright (c) 2023 Eddie Larabi</p>
