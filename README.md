@@ -2,10 +2,12 @@
 
 # PacMen-Exercise
 Visit site: https://selarabi.github.io/PacMen_Exercise/ 
+
 ## Description ##
 <p>
 This project is a demo website that showcases a JavaScript game and can be considered as an exercise to learn how to dynamically inject content into a web page using JavaScript.
 </p>
+
 ## How to Run ##
 <p>
  The website includes a navbar with links to other pages, buttons to add PacMan, start,stop and reset are element for user interaction with pacman elements.<br> 
@@ -14,6 +16,7 @@ The game itself is displayed in a container on the page, and uses HTML and CSS f
 <p>
 The JavaScript component of the project interacts with the HTML elements to create a dynamic game experience where the position of the elements on the screen updates in real-time .
 </p>
+
 ### Navigation bar ###
 The navigation bar has 2 elements (Portfolio and Project sites ) which allow to navigate and explore other projects  their repositories and their sites.<br>
 This website was built using bootsrap styling with other defined styling included in style.css file.
@@ -46,7 +49,7 @@ Bootstrap CSS link
   
   </p>
 
-<h3>MIT License </h3>
+## MIT License ##
 <p>Copyright (c) 2023 Eddie Larabi</p>
 
 <p>
