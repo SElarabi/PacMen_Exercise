@@ -18,7 +18,7 @@ The game itself is displayed in a container on the page, and uses HTML and CSS f
 The JavaScript code in pacmen.js file consist of creating and controling components that interact with the HTML elements to create a dynamic game experience where the position of the elements on the screen updates in real-time .
 </p>
 
-### Navigation bar ###
+## Navigation bar ##
 The navigation bar has 2 elements (Portfolio and Project sites ) which allow to navigate and explore other projects  their repositories and their sites.<br>
 This website was built using bootsrap styling with other defined styling included in style.css file.
       
