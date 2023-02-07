@@ -50,10 +50,12 @@ Bootstrap CSS link
   
   </p>
 ## Roadmap of future improvements ##
+
 - Modify code to allow the pacman character to change face direction.
 - Fix the stop option and allow to resume pacman carachters  movement when user hit move again.
 - 
 ## MIT License ##
+
 <p>Copyright (c) 2023 Eddie Larabi</p>
 
 <p>
