@@ -1,33 +1,40 @@
 <!-- @format -->
 
 # PacMen-Exercise
-Visit site: https://selarabi.github.io/PacMen_Exercise/ 
 
-## Description ##
+Visit site: https://selarabi.github.io/PacMen_Exercise/
+
+## Description
+
 <p>
 This project is a demo website that showcases a JavaScript game and can be considered as an exercise to learn how to dynamically inject content into a web page using JavaScript.
 </p>
 
-## How to Run ##
+## How to Run
+
 ### Main display and pacmen.js
+
 <p>
 
 The game itself is displayed in a container on the page, and uses HTML and CSS for the visual elements.<br>
-Buttons to add PacMan, Move,stop and reset are element for user interaction with pacman elements.<br> 
- - The "add" button will add pacman character each time user hit the button.
-- Start would make added charcters to start moving and bouncing inside the display. Each character would change direction each time it hits the frame sides of the display container.The characters would accelerate when Move button is pressed.
- - Stop would freeze all pacman characters running in the display.
- - Reset would clear display and allow to start new characters.
+Buttons to add PacMan, Move,stop and reset are element for user interaction with pacman elements.<br>
+
+- The "Add PacMan" button will add pacman character each time user hit the button.
+- Start would make added charcters to start moving and bouncing inside the display.
+- Each character would change direction each time it hits the frame sides of the display container.
+- Pause/Resume would freeze all pacman characters running in the display.
+- Reset would clear display and allow to start new characters.
 
 </p>
 <p>
 The JavaScript code in pacmen.js file consist of creating and controling components that interact with the HTML elements to create a dynamic game experience where the position of the elements on the screen updates in real-time .
 </p>
 
-### Navigation bar 
-The navigation bar has 2 elements (Portfolio and Project sites ) which allow to navigate and explore other projects  their repositories and their sites.<br>
+### Navigation bar
+
+The navigation bar has 2 elements (Portfolio and Project sites ) which allow to navigate and explore other projects their repositories and their sites.<br>
 This website was built using bootsrap styling with other defined styling included in style.css file.
-      
+
 </p>
 Bootstrap CSS and JS files are accessible using the following CDN links references without the need for downloading the files and include them in the project files. 
 <p>
@@ -41,8 +48,8 @@ Bootstrap CSS link
       
 <p/>
 
-  Bootstrap JS and popper, the order in wich the bootstrap javascript are called is:  Popper.js, then Bootstrap JS
-  
+Bootstrap JS and popper, the order in wich the bootstrap javascript are called is: Popper.js, then Bootstrap JS
+
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
@@ -53,14 +60,8 @@ Bootstrap CSS link
       integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
       crossorigin="anonymous">
     </script>
-  
-  
-##  Roadmap of future improvements ##
 
-- Modify code to allow the pacman character to change face direction.
-- Fix the stop option and allow to resume pacman carachters  movement when user hits move again.
-
-## MIT License ##
+## MIT License
 
 <p>Copyright (c) 2023 Eddie Larabi</p>
 
