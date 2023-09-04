@@ -59,7 +59,7 @@ function makePac() {
 	return pacManItem;
 }
 
-function move() {
+function start() {
 	clearTimeout(timeoutId);
 	if (!isPaused) {
 		//loop over pacMan array and move each one and move image in DOM
