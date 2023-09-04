@@ -13,10 +13,6 @@ let timeoutId;
 function startTimeout() {
 	timeoutId = setTimeout(move, 150);
 }
-function resetTimeout() {
-	clearTimeout(timeoutId); // Cancel the existing timeout
-	startTimeout(); // Set a new timeout
-}
 
 function setToRandom(scale) {
 	return {
@@ -26,8 +22,6 @@ function setToRandom(scale) {
 }
 // Factory to make a PacMan
 function makePac() {
-	// returns an object with values scaled {x: 33, y: 21}
-
 	// Add image to div id = game
 	let game = document.getElementById('game');
 	let gameRect = game.getBoundingClientRect();
@@ -62,18 +56,16 @@ function makePac() {
 		focus,
 	};
 
-	console.log('pacMan ', pacMan);
 	return pacManItem;
 }
 
 function move() {
+	clearTimeout(timeoutId);
 	if (!isPaused) {
 		//loop over pacMan array and move each one and move image in DOM
 		for (let i = 0; i < pacMan.length; i++) {
 			const item = pacMan[i];
 			checkCollisions(item);
-			console.log('item.velociy ', item.velocity);
-			// item.velocity = velocity;
 
 			item.focus = (item.focus + 1) % 2;
 
