@@ -5,14 +5,18 @@ const pacArray = [
 	['./images/PacMan1.png', './images/PacMan2.png'],
 	['./images/PacMan3.png', './images/PacMan4.png'],
 ];
-const velocity = {
-	x: 33,
-	y: 27,
-};
 
 const pacMan = [];
 
 let isPaused = false;
+let timeoutId;
+function startTimeout() {
+	timeoutId = setTimeout(move, 150);
+}
+function resetTimeout() {
+	clearTimeout(timeoutId); // Cancel the existing timeout
+	startTimeout(); // Set a new timeout
+}
 
 function setToRandom(scale) {
 	return {
@@ -45,7 +49,10 @@ function makePac() {
 	// focus variable determine which PacMan image should be displayed. It flips between values 0 and 1
 	let focus = 1;
 	game.appendChild(newImg);
-
+	const velocity = {
+		x: 33,
+		y: 27,
+	};
 	// new style of creating an object
 	let pacManItem = {
 		position,
@@ -62,30 +69,23 @@ function makePac() {
 function move() {
 	if (!isPaused) {
 		//loop over pacMan array and move each one and move image in DOM
-		pacMan.map((item) => {
-			console.log('item.velociy ', item.velocity);
-			item.velocity = velocity;
+		for (let i = 0; i < pacMan.length; i++) {
+			const item = pacMan[i];
 			checkCollisions(item);
+			console.log('item.velociy ', item.velocity);
+			// item.velocity = velocity;
+
 			item.focus = (item.focus + 1) % 2;
 
-			console.log('direction ', item.direction);
-
 			item.newImg.src = pacArray[item.direction][item.focus];
-			console.log(
-				'pacArray[ item.direction ][ focus ] ',
-				pacArray[item.direction][item.focus]
-			);
 
 			item.position.x += item.velocity.x;
 			item.position.y += item.velocity.y;
 
 			item.newImg.style.left = item.position.x;
 			item.newImg.style.top = item.position.y;
-		});
-
-		setTimeout(move, 150);
-	} else {
-		setTimeout(move, 100); // If paused, still check for input but reduce the timeout
+		}
+		startTimeout();
 	}
 }
 
