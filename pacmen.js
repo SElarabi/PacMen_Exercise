@@ -1,117 +1,118 @@
 /** @format */
 
-var pos = 0 + "px";
+var pos = 0 + 'px';
 const pacArray = [
-  ["./images/PacMan1.png", "./images/PacMan2.png"],
-  ["./images/PacMan3.png", "./images/PacMan4.png"],
+	['./images/PacMan1.png', './images/PacMan2.png'],
+	['./images/PacMan3.png', './images/PacMan4.png'],
 ];
 
-// This variable helps determine which PacMan image should be displayed. It flips between values 0 and 1
-let focus = 1;
-// this is array of newpacMen
-const pacMen = [];
+const pacMan = [];
+
+let isPaused = false;
+let timeoutId;
+function startTimeout() {
+	timeoutId = setTimeout(move, 150);
+}
 
 function setToRandom(scale) {
-  return {
-    x: Math.random() * scale,
-    y: Math.random() * scale,
-  };
+	return {
+		x: Math.random() * scale,
+		y: Math.random() * scale,
+	};
 }
 // Factory to make a PacMan
 function makePac() {
-  // returns an object with values scaled {x: 33, y: 21}
-  let velocity = {
-    x: 33,
-    y: 27,
-  };
+	// Add image to div id = game
+	let game = document.getElementById('game');
+	let gameRect = game.getBoundingClientRect();
+	let position = setToRandom(250);
+	let newImg = document.createElement('img');
+	newImg.style.position = 'absolute';
+	newImg.src = './images/PacMan1.png';
+	newImg.width = 100;
+	newImg.style.left = position.x + gameRect.left;
+	position.x = position.x + gameRect.left;
+	newImg.style.top = position.y + gameRect.top;
+	position.y = position.y + gameRect.top;
 
-  // Add image to div id = game
-  let game = document.getElementById("game");
-  let gameRect = game.getBoundingClientRect();
-  let position = setToRandom(250);
-  let newimg = document.createElement("img");
-  newimg.style.position = "absolute";
-  newimg.src = "./images/PacMan1.png";
-  newimg.width = 100;
-  newimg.style.left = position.x + gameRect.left;
-  position.x = position.x + gameRect.left;
-  newimg.style.top = position.y + gameRect.top;
-  position.y = position.y + gameRect.top;
-  let direction = 0;
-  // this variable defines what direction should PacMan go into:
-  // 0 = left to right
-  // 1 = right to left (reverse)
+	// direction variable defines what direction should PacMan go into:
+	// 0 = left to right
+	// 1 = right to left (reverse)
+	let direction = 0;
 
-  game.appendChild(newimg);
+	// focus variable determine which PacMan image should be displayed. It flips between values 0 and 1
+	let focus = 1;
+	game.appendChild(newImg);
+	const velocity = {
+		x: 33,
+		y: 27,
+	};
+	// new style of creating an object
+	let pacManItem = {
+		position,
+		velocity,
+		newImg,
+		direction,
+		focus,
+	};
 
-  // new style of creating an object
-  return {
-    position,
-    velocity,
-    newimg,
-    direction,
-  };
+	return pacManItem;
 }
 
-function update() {
-  //loop over pacmen array and move each one and move image in DOM
-  pacMen.forEach((item) => {
-    checkCollisions(item);
-    focus = (focus + 1) % 2;
+function move() {
+	clearTimeout(timeoutId);
+	if (!isPaused) {
+		//loop over pacMan array and move each one and move image in DOM
+		for (let i = 0; i < pacMan.length; i++) {
+			const item = pacMan[i];
+			checkCollisions(item);
 
-    item.newimg.src = pacArray[item.direction][focus];
+			item.focus = (item.focus + 1) % 2;
 
-    item.position.x += item.velocity.x;
-    item.position.y += item.velocity.y;
+			item.newImg.src = pacArray[item.direction][item.focus];
 
-    item.newimg.style.left = item.position.x;
-    item.newimg.style.top = item.position.y;
-  });
+			item.position.x += item.velocity.x;
+			item.position.y += item.velocity.y;
 
-  setTimeout(update, 150);
+			item.newImg.style.left = item.position.x;
+			item.newImg.style.top = item.position.y;
+		}
+		startTimeout();
+	}
 }
 
 function checkCollisions(item) {
-  let game = document.getElementById("game");
-  let gameRect = game.getBoundingClientRect();
-
-  if (
-    item.position.x + item.velocity.x + item.newimg.width > gameRect.right ||
-    item.position.x + item.velocity.x < gameRect.left
-  ) {
-    item.velocity.x = -item.velocity.x;
-  }
-
-  if (
-    item.position.y + item.velocity.y + item.newimg.height > gameRect.bottom ||
-    item.position.y + item.velocity.y < gameRect.top
-  ) {
-    item.velocity.y = -item.velocity.y;
-  }
-  let distanceToedge = gameRect.width - item.position.x;
-
-  if (distanceToedge < item.newimg.width + item.velocity.x) item.direction = 0;
-  if (item.position.x < 0) item.direction = 1;
-
-  //if(pos = 0- imgWidth) direction = 0 ;
-
-  /** if(pos - pageWidth <  imgWidth){
-    direction = 0;*/
+	let game = document.getElementById('game');
+	let gameRect = game.getBoundingClientRect();
+	// collision with right edge
+	if (item.position.x + item.velocity.x + item.newImg.width > gameRect.right) {
+		item.velocity.x = -item.velocity.x;
+		item.direction = 1;
+	}
+	// collision with left edge
+	if (item.position.x + item.velocity.x < gameRect.left) {
+		item.velocity.x = -item.velocity.x;
+		item.direction = 0;
+	}
+	// collision with top and bottom edges
+	if (
+		item.position.y + item.velocity.y + item.newImg.height > gameRect.bottom ||
+		item.position.y + item.velocity.y < gameRect.top
+	) {
+		item.velocity.y = -item.velocity.y;
+	}
 }
-function stop() {
-  // TO BE CONTINUED
-  pacMen.forEach((item) => {
-    item.velocity.x = 0;
-    item.velocity.y = 0;
-
-    item.newimg.style.left = item.position.x;
-    item.newimg.style.top = item.position.y;
-  });
+function togglePause() {
+	isPaused = !isPaused; // Toggle the pause state
+	if (!isPaused) {
+		// If unpaused, call move() to resume movement
+		move();
+	}
 }
 function reset() {
-  location.reload();
+	location.reload();
 }
 
 function makeOne() {
-  pacMen.push(makePac()); // add a new PacMan
+	pacMan.push(makePac()); // add a new PacMan
 }

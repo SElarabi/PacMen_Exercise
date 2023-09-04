@@ -1,189 +1,153 @@
 <!-- @format -->
 
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PacMen Exercise</title>
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PacMen Exercise</title>
 
-    <!-- stylesheet -->
-    <link rel="stylesheet" href="./styles.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
 
-    <title>PacMen Exercise</title>
-  </head>
-  <body style="min-height: 100vh; display: flex; flex-direction: column">
-    <nav
-      class="navbar sticky-top navbar-expand-md navbar-dark m-1"
-      style="background-color: rgb(3, 32, 32)"
-    >
-      <div class="container-fluid shadow-sm">
-        <a class="navbar-brand">
-          <div class="pic-boita">
-            <image
-              class="centered-img"
-              src="./images/mypic01.JPG "
-              alt=" Eddie profile pic"
-            />
-          </div>
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="https://selarabi.github.io/Portfolio/"
-                >Portfolio</a
-              >
-            </li>
-            <!--projects link-->
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href="https://selarabi.github.io/Portfolio/projects.html"
-                >Projects</a
-              >
-            </li>
-          </ul>
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="./styles.css" />
+
+  <title>PacMen Exercise</title>
+</head>
+
+<body style="min-height: 100vh; display: flex; flex-direction: column">
+  <nav class="navbar sticky-top navbar-expand-md navbar-dark m-1" style="background-color: rgb(3, 32, 32)">
+    <div class="container-fluid shadow-sm">
+      <a class="navbar-brand">
+        <div class="pic-boita">
+          <image class="centered-img" src="./images/mypic01.JPG " alt=" Eddie profile pic" />
         </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="https://selarabi.github.io/Portfolio/">Portfolio</a>
+          </li>
+          <!--projects link-->
+          <li class="nav-item">
+            <a class="nav-link" href="https://selarabi.github.io/Portfolio/projects.html">Projects</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <!--Top of Page-->
-    <div
-      style="
+  <!--Top of Page-->
+  <div style="
         background-image: url('./MITBannerHomepage.png');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
         color: rgb(250, 255, 254);
         text-align: center;
-      "
-    >
-      <h1 class="display-1 mb-2 text-decoration-underline">PacMen Exercise</h1>
-    </div>
+      ">
+    <h1 class="display-1 mb-2 text-decoration-underline">PacMen Exercise</h1>
+  </div>
 
-    <div style="background-color: rgb(3, 32, 32)">
-      <p
-        class="text-center text-decoration-underline"
-        style="color: rgb(250, 255, 254)"
-      >
-        MIT Coding Certification: Full Stack Development with MERN - October
-        2022
-      </p>
-    </div>
-    <main class="text-bg-white text-start" style="padding: 2em">
-      <!-- Button div-->
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col border text-center">
-            <button onclick="makeOne()" width="100" height="30">
-              Add PacMan
-            </button>
-            <button onclick="update()" width="100" height="30">Move</button>
-            <button onclick="stop()" width="100" height="30">Stop</button>
-            <button onclick="reset()" width="100" height="30">Reset</button>
-          </div>
+  <div style="background-color: rgb(3, 32, 32)">
+    <p class="text-center text-decoration-underline" style="color: rgb(250, 255, 254)">
+      MIT Coding Certification: Full Stack Development with MERN - October
+      2022
+    </p>
+  </div>
+  <main class="text-bg-white text-start" style="padding: 2em">
+    <!-- Button div-->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col border text-center">
+          <button onclick="makeOne()" width="100" height="30">
+            Add PacMan
+          </button>
+          <button onclick="move()" width="100" height="30">Move</button>
+          <button onclick="togglePause()" width="100" height="30">Pause/Resume</button>
+          <button onclick="reset()" width="100" height="30">Reset</button>
         </div>
       </div>
-      <!-- Demo Content-->
-      <div class="container-fluid">
-        <div class="row">
-          <div id="gameDemo " class="col border">
-            <div id="game" class="border"></div>
-          </div>
+    </div>
+    <!-- Demo Content-->
+    <div class="container-fluid">
+      <div class="row">
+        <div id="gameDemo " class="col border">
+          <div id="game" class="border"></div>
         </div>
       </div>
-      <br />
-      <!-- Description-->
+    </div>
+    <br />
+    <!-- Description-->
 
-      <div class="container shadow-lg">
-        <div class="row">
-          <div class="col">
-            <span class="d-block p-2 opacity-75 shadow-lg"
-              ><h5 class="card-title display-6">Description</h5>
+    <div class="container shadow-lg">
+      <div class="row">
+        <div class="col">
+          <span class="d-block p-2 opacity-75 shadow-lg">
+            <h5 class="card-title display-6">Description</h5>
 
-              <div class="border border-success p-2 mb-2">
-                <article>
-                  <p>
-                    This project is a demo website that showcases a JavaScript
-                    components interacting with the HTML elements to create a
-                    dynamic game experience where the position of the elements
-                    (paman characters) on the screen updates in real-time.
-                  </p>
+            <div class="border border-success p-2 mb-2">
+              <article>
+                <p>
+                  This project is a demo website that showcases a JavaScript
+                  components interacting with the HTML elements to create a
+                  dynamic game experience where the position of the elements
+                  (paman characters) on the screen updates in real-time.
+                </p>
 
-                  <p>
-                    The buttons to add PacMan, start, stop and Reset are user
-                    interaction to pacman characters in the display, and hitting
-                    the Start game each time will accelerate the movement of
-                    pacmen character
-                  </p>
+                <p>
+                  The buttons to add PacMan, start, stop and Reset are user
+                  interaction to pacman characters in the display, and hitting
+                  the Start game each time will accelerate the movement of
+                  pacmen character
+                </p>
 
-                  <p>
-                    The game itself is displayed in a container on the page, and
-                    uses HTML and CSS for the visual elements.
-                  </p>
-                </article>
-              </div></span
-            >
-
-            <div class="card-body">
-              <a
-                href="#"
-                onclick="window.open('https://github.com/SElarabi/PacMen_Exercise','blanck')"
-                class="btn btn-primary opacity-100"
-                >Github repository</a
-              >
+                <p>
+                  The game itself is displayed in a container on the page, and
+                  uses HTML and CSS for the visual elements.
+                </p>
+              </article>
             </div>
+          </span>
+
+          <div class="card-body">
+            <a href="#" onclick="window.open('https://github.com/SElarabi/PacMen_Exercise','blanck')"
+              class="btn btn-primary opacity-100">Github repository</a>
           </div>
         </div>
       </div>
-      <br />
-    </main>
-    <!-- Footer -->
-    <footer
-      style="
+    </div>
+    <br />
+  </main>
+  <!-- Footer -->
+  <footer style="
         color: aliceblue;
         background-color: rgb(3, 32, 32);
         margin-top: auto;
-      "
-    >
-      <div class="container">
-        <p class="text-center mb-0">Copyright &copy; 2023 S.E.Larabi</p>
-      </div>
-    </footer>
+      ">
+    <div class="container">
+      <p class="text-center mb-0">Copyright &copy; 2023 S.E.Larabi</p>
+    </div>
+  </footer>
 
-    <script src="./pacmen.js"></script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="./pacmen.js"></script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
