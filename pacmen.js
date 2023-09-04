@@ -5,10 +5,14 @@ const pacArray = [
 	['./images/PacMan1.png', './images/PacMan2.png'],
 	['./images/PacMan3.png', './images/PacMan4.png'],
 ];
-// This variable helps determine which PacMan image should be displayed. It flips between values 0 and 1
-// let focus = 1;
-// this is array of newpacMen
+const velocity = {
+	x: 33,
+	y: 27,
+};
+
 const pacMan = [];
+
+let isPaused = false;
 
 function setToRandom(scale) {
 	return {
@@ -19,10 +23,6 @@ function setToRandom(scale) {
 // Factory to make a PacMan
 function makePac() {
 	// returns an object with values scaled {x: 33, y: 21}
-	let velocity = {
-		x: 33,
-		y: 27,
-	};
 
 	// Add image to div id = game
 	let game = document.getElementById('game');
@@ -36,12 +36,13 @@ function makePac() {
 	position.x = position.x + gameRect.left;
 	newImg.style.top = position.y + gameRect.top;
 	position.y = position.y + gameRect.top;
-	let direction = 0;
 
-	// this variable defines what direction should PacMan go into:
+	// direction variable defines what direction should PacMan go into:
 	// 0 = left to right
 	// 1 = right to left (reverse)
-	// This variable helps determine which PacMan image should be displayed. It flips between values 0 and 1
+	let direction = 0;
+
+	// focus variable determine which PacMan image should be displayed. It flips between values 0 and 1
 	let focus = 1;
 	game.appendChild(newImg);
 
@@ -58,65 +59,63 @@ function makePac() {
 	return pacManItem;
 }
 
-function update() {
-	//loop over pacMan array and move each one and move image in DOM
-	pacMan.forEach((item) => {
-		checkCollisions(item);
-		item.focus = (item.focus + 1) % 2;
+function move() {
+	if (!isPaused) {
+		//loop over pacMan array and move each one and move image in DOM
+		pacMan.map((item) => {
+			console.log('item.velociy ', item.velocity);
+			item.velocity = velocity;
+			checkCollisions(item);
+			item.focus = (item.focus + 1) % 2;
 
-		console.log('direction ', item.direction);
+			console.log('direction ', item.direction);
 
-		item.newImg.src = pacArray[item.direction][item.focus];
-		console.log(
-			'pacArray[ item.direction ][ focus ] ',
-			pacArray[item.direction][item.focus]
-		);
+			item.newImg.src = pacArray[item.direction][item.focus];
+			console.log(
+				'pacArray[ item.direction ][ focus ] ',
+				pacArray[item.direction][item.focus]
+			);
 
-		item.position.x += item.velocity.x;
-		item.position.y += item.velocity.y;
+			item.position.x += item.velocity.x;
+			item.position.y += item.velocity.y;
 
-		item.newImg.style.left = item.position.x;
-		item.newImg.style.top = item.position.y;
-	});
+			item.newImg.style.left = item.position.x;
+			item.newImg.style.top = item.position.y;
+		});
 
-	setTimeout(update, 150);
+		setTimeout(move, 150);
+	} else {
+		setTimeout(move, 100); // If paused, still check for input but reduce the timeout
+	}
 }
 
 function checkCollisions(item) {
 	let game = document.getElementById('game');
 	let gameRect = game.getBoundingClientRect();
-	console.log('gameRect ', gameRect);
-	if (
-		item.position.x + item.velocity.x + item.newImg.width >
-		gameRect.right
-		// ||
-		// item.position.x + item.velocity.x < gameRect.left
-	) {
+	// collision with right edge
+	if (item.position.x + item.velocity.x + item.newImg.width > gameRect.right) {
 		item.velocity.x = -item.velocity.x;
 		item.direction = 1;
 	}
+	// collision with left edge
 	if (item.position.x + item.velocity.x < gameRect.left) {
 		item.velocity.x = -item.velocity.x;
 		item.direction = 0;
 	}
+	// collision with top and bottom edges
 	if (
 		item.position.y + item.velocity.y + item.newImg.height > gameRect.bottom ||
 		item.position.y + item.velocity.y < gameRect.top
 	) {
 		item.velocity.y = -item.velocity.y;
 	}
-
-	console.log('item.position.x ', item.position.x);
 }
-function stop() {
-	// TO BE CONTINUED
-	pacMan.forEach((item) => {
-		item.velocity.x = 0;
-		item.velocity.y = 0;
-
-		item.newImg.style.left = item.position.x;
-		item.newImg.style.top = item.position.y;
-	});
+function togglePause() {
+	isPaused = !isPaused; // Toggle the pause state
+	if (!isPaused) {
+		// If unpaused, call move() to resume movement
+		move();
+	}
 }
 function reset() {
 	location.reload();
