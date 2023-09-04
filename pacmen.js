@@ -1,6 +1,6 @@
 /** @format */
 
-var pos = 0 + 'px';
+var position = 0 + 'px';
 const pacArray = [
 	['./images/PacMan1.png', './images/PacMan2.png'],
 	['./images/PacMan3.png', './images/PacMan4.png'],
@@ -11,7 +11,7 @@ const pacMan = [];
 let isPaused = false;
 let timeoutId;
 function startTimeout() {
-	timeoutId = setTimeout(move, 150);
+	timeoutId = setTimeout(start, 150);
 }
 
 function setToRandom(scale) {
@@ -29,7 +29,7 @@ function makePac() {
 	let newImg = document.createElement('img');
 	newImg.style.position = 'absolute';
 	newImg.src = './images/PacMan1.png';
-	newImg.width = 100;
+	newImg.width = 75;
 	newImg.style.left = position.x + gameRect.left;
 	position.x = position.x + gameRect.left;
 	newImg.style.top = position.y + gameRect.top;
@@ -106,7 +106,7 @@ function togglePause() {
 	isPaused = !isPaused; // Toggle the pause state
 	if (!isPaused) {
 		// If unpaused, call move() to resume movement
-		move();
+		start();
 	}
 }
 function reset() {
